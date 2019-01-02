@@ -13,8 +13,17 @@ class Counter extends React.Component {
 		this.halfIt = this.halfIt.bind(this)
 		this.tripleIt = this.tripleIt.bind(this)
 		this.infinity = this.infinity.bind(this)
+		this.subtractOne = this.subtractOne.bind(this)
 	}
 
+
+	subtractOne() {
+		this.setState(prevState => {
+			return {
+				count: prevState.count - 1
+			}
+		})
+	}
 	addOne() {
 		this.setState(prevState => {
 			return {
@@ -60,6 +69,7 @@ class Counter extends React.Component {
 			<div>
 			<h1>{this.state.count}</h1>
 		<button onClick={this.addOne}>Add One!</button>
+		<button onClick={this.subtractOne}>Subtract One!</button>
 		<button onClick={this.doubleIt}>Double It!</button>
 		<button onClick={this.tripleIt}>Triple It!</button>
 		<button onClick={this.halfIt}>Half It!</button>
